@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Result</title>
+</head>
+<body>
+  <h1>Result of the Search</h1>
+  <p id="searchResult"></p>
+
+  <script>
+    // Get the query param from the URL
+    const params = new URLSearchParams(window.location.search);
+    const searchTerm = params.get('q');
+
+    // Inject into page
+    document.getElementById("searchResult").textContent = searchTerm
+      ? `You searched for: "${searchTerm}"`
+      : "No search query provided.";
+  </script>
+</body>
+</html>
