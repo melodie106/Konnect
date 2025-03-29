@@ -4,20 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Search Result</title>
+  <style>
+    .search-query {
+      font-size: 24px;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
   <h1>Result of the Search</h1>
-  <p id="searchResult"></p>
+  <div class="search-query" id="searchResultText">No search query provided.</div>
 
   <script>
-    // Get the query param from the URL
     const params = new URLSearchParams(window.location.search);
-    const searchTerm = params.get('q');
+    const query = params.get('q');
+    const resultDiv = document.getElementById("searchResultText");
 
-    // Inject into page
-    document.getElementById("searchResult").textContent = searchTerm
-      ? `You searched for: "${searchTerm}"`
-      : "No search query provided.";
+    if (query) {
+      resultDiv.textContent = query;
+    }
   </script>
 </body>
 </html>
+
